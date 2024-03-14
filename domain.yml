@@ -1,0 +1,58 @@
+version: "3.1"
+
+intents:
+  - greet
+  - goodbye
+  - affirm
+  - deny
+  - mood_great
+  - mood_unhappy
+  - bot_challenge
+  - ask_author
+  - ask_function
+
+responses:
+  utter_greet:
+  - text: "Hey! How are you?"
+
+  utter_cheer_up:
+  - text: "Here is something to cheer you up:"
+    image: "https://i.imgur.com/nGF1K8f.jpg"
+
+  utter_did_that_help:
+  - text: Như thế có giúp bạn không?
+  - text: Bạn cảm thấy tốt hơn chưa? Hay vẫn cần một tour healing nhỉ?
+
+  utter_happy:
+  - text: Ngon lành
+  - text: Tuyệt vời
+  - text: Tuyệt
+  - text: Rất vui vì giúp được bạn
+
+  utter_goodbye:
+  - text: Chào nhé, hẹn gặp lại
+  - text: Tạm biệt
+  - text: Hẹn gặp lại sau
+  - text: Chúc bạn một ngày tốt lành
+  - text: Lần sau cần đi đâu chơi thì hỏi mình nhé
+  - text: Sẵn sàng lắng nghe, lâu lâu mới hiểu
+  - text: Cần đặt tour đi healing thì nhắn mình nhé
+
+  utter_iamabot:
+  - text: "Mình là bot, nhưng đừng vì thế mà đánh giá thấp mình nhé"
+  - text: "Mình là bot, nhưng mình có thể giúp bạn nhiều điều lắm"
+
+  utter_ask_author:
+    - text: Chủ nhân của mình là một người hướng nội
+    - text: Má tui bảo nhặt tui từ thùng rác :|
+    - text: Tui nghĩ tui là con rơi á :(
+    - text: Tui được kể là nhặt từ trong bụi chuối trên Sapa hồi năm ngoái
+    - text: Tui là con của một coder đang học Rasa :D
+
+  utter_ask_function:
+    - text: "Mình có thể tư vấn tour du lịch dựa trên nhu cầu, mô tả điểm đến, hướng dẫn đặt lịch, và tính toán chi phí giúp bạn đấy."
+
+
+session_config:
+  session_expiration_time: 30
+  carry_over_slots_to_new_session: true

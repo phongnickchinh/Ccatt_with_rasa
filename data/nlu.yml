@@ -1,0 +1,124 @@
+version: "3.1"
+
+nlu:
+- intent: greet
+  examples: |
+    - chào
+    - xin chào
+    - chào bạn
+    - chào buổi sáng
+    - chào buổi tối
+    - chào nha
+    - chào bạn đó
+    - chúng ta đi nào
+    - chào bạn đẹp trai
+    - chào buổi sáng
+    - chào buổi tối
+    - chào buổi chiều
+
+- intent: goodbye
+  examples: |
+    - tạm biệt
+    - chào tạm biệt
+    - hẹn gặp lại sau
+    - chúc ngủ ngon
+    - tạm biệt
+    - chào tạm biệt
+    - chúc một ngày tốt lành
+    - hẹn gặp lại
+    - tạm biệt
+    - tạm biệt
+    - gặp lại sau
+    - lúc khác gặp lại
+
+- intent: affirm
+  examples: |
+    - đúng rồi
+    - đúng
+    - chính xác
+    - đúng vậy
+    - đúng rồi
+    - đúng vậy
+    - yeah
+    - yes
+    - yep
+    - right
+    - that's correct
+    - rõ ràng là vậy
+    - chính xác
+
+- intent: deny
+  examples: |
+    - không
+    - không phải
+    - không đúng
+    - thiếu chính xác
+    - không chính xác
+    - nah nah
+    - no
+    - nope
+
+- intent: mood_great
+  examples: |
+    - hoàn hảo
+    - tuyệt vời
+    - kỳ diệu
+    - cảm thấy như một vị vua
+    - tuyệt vời
+    - tôi đang cảm thấy rất tốt
+    - tôi đang tuyệt vời
+    - tôi đang kỳ diệu
+    - cảm thấy có thể cứu cả thế giới
+    - rất phấn khích
+    - cực kỳ tốt
+    - rất hoàn hảo
+    - rất tốt
+    - rất hoàn hảo
+    - rất tuyệt vời
+    - Tôi chưa bao giờ cảm thấy tốt như vậy
+    - Hôm nay tôi cảm thấy rất tốt
+    - Tôi cảm thấy rất tốt
+
+- intent: mood_unhappy
+  examples: |
+    - tệ
+    - tôi cảm thấy tệ
+    - tôi cảm thấy không tốt
+    - Một ngày tồi tệ
+    - Tệ
+    - Mọi chuyện không như tôi mong đợi
+    -
+
+
+- intent: bot_challenge
+  examples: |
+    - bạn là bot
+    - bạn là bot phải không
+    - bạn có phải con người không
+    - Bạn có phải con mèo không
+
+- intent: ask_author
+  examples: |
+    - ai là chủ nhân của bạn
+    - bạn là con của ai
+    - Ai tạo ra bạn
+    - Bạn là con của ai
+
+- intent: ask_function
+  examples: |
+    - Bạn có thể làm được gì
+    - Bạn có thể giúp tôi như thế nào
+    - chức năng của bạn là gì
+
+#Các câu hỏi về tour du lịch
+#câu hỏi chung chung
+- intent:
+  examples:
+  - Tôi muốn tham khảo tour du lịch
+  - Tôi muốn đi du lịch
+  - Tôi muốn đi chơi, hãy tư vấn cho tôi
+  - tư vấn cho tôi vài điểm đến hot mùa này
+  - Bạn có gợi ý gì không
+  - Hãy tư vấn vài điểm đến thú vị
+  -
+
