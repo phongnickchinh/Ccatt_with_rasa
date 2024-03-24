@@ -1,6 +1,7 @@
 
 import requests
 from bs4 import BeautifulSoup
+import re
 
 #lấy các thông tin cơ bản
 def get_basic_info(div, bigDiv):
@@ -52,7 +53,7 @@ def get_highlights(div):
 def get_tour_detail(div):
     try:
         array_tittle=div.find("a", id="a-title-program-tour-0").text.strip()
-        array = div.find("div", class_="panel-collapse collapse in").text.strip().replace("\n","").replace("\xa0"," ")
+        array = div.find("div", class_="panel-collapse collapse in").text.strip().replace("\n","").replace("\n", "").replace("\xa0"," ")
         array = array.split("LƯU Ý")[0]
         return  array
     except Exception as e:
@@ -110,17 +111,48 @@ def get_price_detail(div):
 def get_policy(div):
     try:
         tour_rules_tag=div.find("div", id="tour-rule-2")
-        #quy trình đăng lý tour
-        policy_register=tour_rules_tag.find(lambda tag: tag.name=='h3' and tag.text.strip()=='QUY TRÌNH ĐĂNG KÝ TOUR').findNextSibling().text.strip().replace("\r", "").replace("\t"," ").replace("\n","")
-        policy_register_note=tour_rules_tag.find(lambda tag: tag.name=='h3' and tag.text.strip()=='QUY TRÌNH ĐĂNG KÝ TOUR').findNextSibling().findNextSibling().text.strip()
-        #tìm kiếm thông tin LÀ THẺ ĐẰNG SAU thẻ h3 vào nôi dung chưa đoạn NHỮNG LƯU Ý KHÁC
-        policy_note_tag=div.find("div", id="tour-rule-2").find(lambda tag: tag.name=='h3' and tag.text.strip()=='NHỮNG LƯU Ý KHÁC').findNextSibling().findChildren()
-        policy_note=[x.text.strip().replace("\r", "").replace("\t"," ").replace("\n","") for x in policy_note_tag if x.text != ""]
+        policy_note=None #tìm thẻ QUY TRÌNH ĐĂNG KÝ TOUR, thẻ này có thể là p hoặc h3
+        policy_register=None #thẻ chứa lưu ý khi đăng ký tour, thường là thẻ sau của thẻ sau của policy_note
+        cancellation_fee=None #phí hủy tour
+        policy_register_note=None # tìm thẻ có nội dung NHỮNG LƯU Ý KHÁC, thẻ này có thể là p hoặc h3
 
-        return policy_note, policy_register, policy_register_note
+        if tour_rules_tag.find("h3")!=None:
+            #tim thẻ h3 có chứa nội dung QUY TRÌNH ĐĂNG KÝ TOUR
+            for h3 in tour_rules_tag.find_all("h3"):
+                if "ĐĂNG KÝ TOUR" in h3.text:
+                    policy_register=h3.findNext ("ul").find_all("li")
+                    policy_register=[x.text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ") for x in policy_register]
+                    policy_register_note=h3.findNext("ul").findNext("p").text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ")
+                if "LƯU Ý KHÁC" in h3.text:
+                    policy_note=h3.findNext("ul").find_all("li")
+                    policy_note=[x.text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ") for x in policy_note]
+        else:
+            #tim thẻ p có chứa nội dung QUY TRÌNH ĐĂNG KÝ TOUR
+            for p in tour_rules_tag.find_all("p"):
+                if "ĐĂNG KÝ TOUR" in p.text:
+                    policy_register=p.findNext("ul").find_all("li")
+                    policy_register=[x.text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ") for x in policy_register]
+                    policy_register_note=p.findNext("ul").findNext("p").text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ")
+                if "LƯU Ý KHÁC" in p.text:
+                    policy_note=p.findNext("ul").find_all("li")
+                    policy_note=[x.text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ") for x in policy_note]
+
+        #tìm thẻ chứa phí hủy tour thẻ này có chưa nội dung "phí huỷ" hoặc "khoản hủy tour"
+        for p in tour_rules_tag.find_all("p"):
+            #có thể do lỗi hiển thị với các kí tự đặc biệt nên khi viết tay từ "Phí hủy" và "khoản hủy tour" thì không tìm được
+            #nhưng khi copy từ trang web thì tìm thấy, ôi ảo ma quáaaa
+            if "Phí hủy" in p.text:
+                print(p.text.strip())
+                cancellation_fee=p.findNext("ul").find_all("li")
+                cancellation_fee=[x.text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ") for x in cancellation_fee]
+            if "khoản hủy tour" in p.text:
+                print(p.text.strip())
+                cancellation_fee=p.findNext("ul").find_all("li")
+                cancellation_fee=[x.text.strip().replace("\t","").replace("\n","").replace("\xa0"," ").replace("\r"," ") for x in cancellation_fee]
+        return policy_register, policy_register_note, cancellation_fee, policy_note
     except Exception as e:
         #print("policy not clear:"+str(e))
-        return None, None, None
+        return None, None, None, None
 
 
 
@@ -159,35 +191,17 @@ def pull_and_clean(url):
     # print(note)
 
     #quy định, điều khoản
-    policy_note, policy_register, policy_register_note = get_policy(div)
-    return title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note, policy_note, policy_register, policy_register_note
+    policy_register, policy_register_note, cancellation_fee, policy_note = get_policy(div)
+    return title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note, policy_register, policy_register_note, policy_note, cancellation_fee
 
 
 def try_pull(url):
     
     try:
-        #pull_and_clean(url_P)
-        title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note,policy_note, policy_register, policy_register_note = pull_and_clean(url)
-        #in ra tất cả
-        # print("Title: ", title)
-        # print("Location: ", location)
-        # print("Departure Place: ", departure_place)
-        # print("Length: ", length)
-        # print("Vehicle: ", vehicle)
-        # print("Tour ID: ", tour_id)
-        # print("List Extra Service: ", list_extra_service)
-        # print("Highlights: ", highlights)
-        # print("Detail: ", detail)
-        # print("Price on Departure: ", price_on_departure)
-        # print("Price Detail: ", price_detail)
-        # print("Note: ", note)
-        # print("Policy Note: ", policy_note)
-        # print("Policy Register: ", policy_register)
-        # print("Policy Register Note: ", policy_register_note)
-
         #kiểm tra xem hàm nào trả về None, thêm vào list return tên hàm đó
         list_return=[]
-        list_tour_info=[title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note, policy_note, policy_register, policy_register_note]
+        title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note, policy_register, policy_register_note, policy_note, cancellation_fee = pull_and_clean(url)
+        list_tour_info=[title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note, policy_register, policy_register_note, policy_note, cancellation_fee]
         
         #ghi log lỗi mỗi hàm
         if title==None or location==None or departure_place==None or length==None or vehicle==None or tour_id==None or list_extra_service==None:
@@ -200,7 +214,7 @@ def try_pull(url):
             list_return.append("get_price_on_departure")
         if price_detail==None or note==None:
             list_return.append("get_price_detail")
-        if policy_note==None or policy_register==None or policy_register_note==None:
+        if policy_note==None or policy_register==None or policy_register_note==None or cancellation_fee==None:
             list_return.append("get_policy")
 
         if len(list_return)==0:
@@ -214,8 +228,7 @@ def try_pull(url):
 
 
 
-url_P="https://www.vietnambooking.com/du-lich/tour-cao-bang-bac-kan-lang-son-3n2d.html"
-print(url_P)
+url_P="https://www.vietnambooking.com/du-lich/tour-my-tho-1-ngay-cho-khach-doan.html"
 try_pull(url_P)
 
 

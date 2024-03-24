@@ -7,6 +7,10 @@ with open("database/listTour-trongNuoc.txt", "r") as f:
 
 #duyệt qua từng tour trong listTour
 #tạo các biến để lưu lỗi và số lượng tour đã pull thành công
+#hàm try_pull sẽ trả về 1 trong 3 trường hợp:
+#- "success": pull thành công kèm theo list_result: title, location, departure_place, length, vehicle, tour_id, list_extra_service, highlights, detail, price_on_departure, price_detail, note, policy_register, policy_register_note, policy_note, cancellation_fee
+#- "mini fail": pull không thành công ở 1 trong 6 hàm: get_basic_info, get_highlights, get_tour_detail, get_price_on_departure, get_price_detail, get_policy
+#- "fail": pull không thành công ở hàm pull_and_clean
 i, success = 0, 0
 error_in_get_basic_info, error_in_get_highlights, error_in_get_tour_detail = 0, 0, 0
 error_in_get_price_on_departure, error_in_get_price_detail, error_in_get_policy = 0, 0, 0
@@ -27,19 +31,20 @@ for tour in listTour:
             f.write("Tour "+str(i)+": "+tour+"\n")
             f.write("Title: "+str(list_result[0])+"\n")
             f.write("Location: "+str(list_result[1])+"\n")
-            f.write("Departure Place: "+str(list_result[2])+"\n")
+            f.write("Departure place: "+str(list_result[2])+"\n")
             f.write("Length: "+str(list_result[3])+"\n")
             f.write("Vehicle: "+str(list_result[4])+"\n")
             f.write("Tour ID: "+str(list_result[5])+"\n")
-            f.write("List Extra Service: "+str(list_result[6])+"\n")
+            f.write("List extra service: "+str(list_result[6])+"\n")
             f.write("Highlights: "+str(list_result[7])+"\n")
             f.write("Detail: "+str(list_result[8])+"\n")
-            f.write("Price on Departure: "+str(list_result[9])+"\n")
-            f.write("Price Detail: "+str(list_result[10])+"\n")
+            f.write("Price on departure: "+str(list_result[9])+"\n")
+            f.write("Price detail: "+str(list_result[10])+"\n")
             f.write("Note: "+str(list_result[11])+"\n")
-            f.write("Policy Note: "+str(list_result[12])+"\n")
-            f.write("Policy Register: "+str(list_result[13])+"\n")
-            f.write("Policy Register Note: "+str(list_result[14])+"\n")
+            f.write("Policy register: "+str(list_result[12])+"\n")
+            f.write("Policy register note: "+str(list_result[13])+"\n")
+            f.write("Policy note: "+str(list_result[14])+"\n")
+            f.write("Cancellation fee: "+str(list_result[15])+"\n")
             f.write("\n")
             f.write("------------------------------------------------------------------------------\n")
             
@@ -75,7 +80,7 @@ print("Error in get_price_on_departure: ", error_in_get_price_on_departure)
 print("Error in get_price_detail: ", error_in_get_price_detail)
 print("Error in get_policy: ", error_in_get_policy)
 
-with open("database/log_success.txt", "a") as f:
+with open("database/log_success.txt", "a",encoding="utf-8") as f:
     f.write("Success: "+str(success)+"\n")
 with open("database/log_fail.txt", "a", encoding="utf-8") as f:
     f.write("Error in get_basic_info: "+str(error_in_get_basic_info)+"\n")
