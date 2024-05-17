@@ -1,6 +1,6 @@
 venv/
 .rasa/cache/
-actions/__pycache__/
+actions/_pycache_/
 *.gz
 .rasa/cache/cache.db
 actions/__pycache__/__init__.cpython-310.pyc
