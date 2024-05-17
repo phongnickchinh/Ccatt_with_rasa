@@ -1,5 +1,8 @@
 version: "3.1"
-
+entities:
+  - season
+  - suggest
+  - this season
 intents:
   - greet
   - goodbye
@@ -10,7 +13,10 @@ intents:
   - bot_challenge
   - ask_author
   - ask_function
-
+  - tour_suggest
+actions:
+  - action_tour_suggest
+  - action_hello_world
 responses:
   utter_greet:
   - text: "Hey! How are you?"
@@ -50,8 +56,10 @@ responses:
     - text: Tui là con của một coder đang học Rasa :D
 
   utter_ask_function:
-    - text: "Mình có thể tư vấn tour du lịch dựa trên nhu cầu, mô tả điểm đến, hướng dẫn đặt lịch, và tính toán chi phí giúp bạn đấy."
+    - text: Mình có thể giúp bạn tìm tour du lịch, tư vấn địa điểm, mùa vụ, giá cả, thời gian, cũng như các thông tin khác về tour du lịch
 
+
+    
 
 session_config:
   session_expiration_time: 30

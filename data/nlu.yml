@@ -1,6 +1,12 @@
 version: "3.1"
 
-nlu:
+nlu: 
+- intent: chatGPT
+  examples: |
+    - https://chat.openai.com/c/d4535419-cfa5-42b7-86b9-9cf2398b7c67
+    
+
+
 - intent: greet
   examples: |
     - chào
@@ -112,13 +118,60 @@ nlu:
 
 #Các câu hỏi về tour du lịch
 #câu hỏi chung chung
-- intent:
-  examples:
-  - Tôi muốn tham khảo tour du lịch
-  - Tôi muốn đi du lịch
-  - Tôi muốn đi chơi, hãy tư vấn cho tôi
-  - tư vấn cho tôi vài điểm đến hot mùa này
-  - Bạn có gợi ý gì không
-  - Hãy tư vấn vài điểm đến thú vị
-  -
+- intent: tour_suggest
+  examples: |
+    - Trong những ngày [nóng bức](weather) của [mùa hè](season), có các tour nào tập trung vào tham quan những điểm nước mát?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời mát mẻ](weather) của [mùa thu](season)?
+    - Trong những ngày [trời nắng](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào các hoạt động ngoài trời?
+    - Có những tour nào được tổ chức vào những ngày [trời nắng chang chang](weather) của [mùa hè](season)?
+    - Trong những ngày [lạnh giá](weather) của [mùa đông](season), có các tour nào tập trung vào hoạt động trượt tuyết?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa đông](season)?
+    - Trong những ngày [trời mưa](weather) của [mùa xuân](season), có các tour nào tập trung vào thăm quan các vườn hoa?
+    - Có những tour nào được tổ chức vào những ngày [mưa rào](weather) của [mùa hè](season)?
+    - Trong những ngày [trời se se lạnh](weather) của [mùa thu](season), có các chuyến đi nào tập trung vào việc ngắm cảnh lá vàng?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời ấm áp](weather) của [mùa thu](season)?
+    - Trong những ngày [nắng nóng](weather) của [mùa hè](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nước?
+    - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa hè](season)?
+    - Trong những ngày [trời mát](weather) của [mùa xuân](season), có các chuyến đi nào tập trung vào việc khám phá thiên nhiên?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng vàng](weather) của [mùa thu](season)?
+    - Trong những ngày [trời mưa rào](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc tham gia các hoạt động trong nhà?
+    - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa thu](season)?
+    - Trong những ngày [trời mát mẻ](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các điểm du lịch lịch sử?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời mát](weather) của [mùa thu](season)?
+    - Trong những ngày [trời mưa](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu vui chơi giải trí trong nhà?
+    - Có những tour nào được tổ chức vào những ngày [trời se lạnh](weather) của [mùa đông](season)?
+    - Trong những ngày [trời mát](weather) của [mùa xuân](season), có các tour nào tập trung vào việc thăm quan các khu du lịch quốc gia?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng](weather) của [mùa hè](season)?
+    - Trong những ngày [trời mưa phùn](weather) của [mùa thu](season), có các chuyến đi nào tập trung vào việc tham quan các khu vườn hoa?
+    - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa đông](season)?
+    - Trong những ngày [trời mát mẻ](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nông nghiệp?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng chang chang](weather) của [mùa hè](season)?
+    - Trong những ngày [trời mưa rào](weather) của [mùa đông](season), có các chuyến đi nào tập trung vào việc tham quan các bảo tàng lịch sử?
+    - Có những tour nào được tổ chức vào những ngày [trời mát](weather) của [mùa xuân](season)?
+    - Trong những ngày [trời se se lạnh](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nghệ thuật?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời mưa phùn](weather) của [mùa hè](season)?
+    - Trong những ngày [trời se lạnh](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các di tích lịch sử?
+    - Có những tour nào được tổ chức vào những ngày [trời mát](weather) của [mùa xuân](season)?
+    - Trong những ngày [trời nắng](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các công viên quốc gia?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời mưa rào](weather) của [mùa đông](season)?
+    - Trong những ngày [trời mát mẻ](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch biển?
+    - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa xuân](season)?
+    - Trong những ngày [trời mưa phùn](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu di tích văn hóa?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời mát](weather) của [mùa đông](season)?
+    - Trong những ngày [trời nắng chang chang](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu vực nông thôn?
+    - Có những tour nào được tổ chức vào những ngày [trời mưa rào](weather) của [mùa xuân](season)?
+    - Trong những ngày [trời mát mẻ](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các công viên giải trí?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
+    - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch thiên nhiên?
+    - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
+    - Trong những ngày [trời mát](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu di tích lịch sử?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời se se lạnh](weather) của [mùa thu](season)?
+    - Trong những ngày [trời nắng chang chang](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu vực du lịch sinh thái?
+    - Có những tour nào được tổ chức vào những ngày [trời mưa rào](weather) của [mùa xuân](season)?
+    - Trong những ngày [trời mát mẻ](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu du lịch tôn giáo?
+    - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
+    - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch rừng?
+    - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
+
+
 

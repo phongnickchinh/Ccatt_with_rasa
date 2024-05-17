@@ -49,3 +49,17 @@ stories:
   steps:
   - intent: ask_function
   - action: utter_ask_function
+
+- story: tour suggest
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: tour_suggest
+  - action: action_tour_suggest
+
+- story: greet and say hello world
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: bot_challenge
+  - action: action_hello_world
