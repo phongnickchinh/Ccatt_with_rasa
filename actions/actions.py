@@ -12,50 +12,108 @@ from rasa_sdk import Action, Tracker
 from rasa_sdk.executor import CollectingDispatcher
 
 #
-class ActionHelloWorld(Action):
+# class ActionHelloWorld(Action):
 
-    def name(self) -> Text:
-        return "action_hello_world"
+#     def name(self) -> Text:
+#         return "action_hello_world"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+#     def run(self, dispatcher: CollectingDispatcher,
+#             tracker: Tracker,
+#             domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
 
-        dispatcher.utter_message(text="Hello World!")
+#         dispatcher.utter_message(text="Hello World!")
 
-        return []
+#         return []
 #kết nối database mongodb
 from pymongo import MongoClient
 
 # Kết nối tới MongoDB
 client = MongoClient('localhost', 27017)
+client = MongoClient('mongodb://localhost:27017/')
+db = client['project2']
+collection = db['tour_infor']
 
-class tourSuggest(Action):
-    def name(self) -> Text:
-        return "action_tour_suggest"
+class ActionTourSuggestSeason(Action):
+    def name(self) -> str:
+        return "action_tour_suggest_season"
 
-    def run(self, dispatcher: CollectingDispatcher,
-            tracker: Tracker,
-            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
-        
-        print("đã chạy action_tour_suggest")
-        # Lấy giá trị của thực thể "season" từ tracker
-        season = tracker.get_slot("season")
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
+        season = next(tracker.get_latest_entity_values("season"), None)
+        if not season:
+            dispatcher.utter_message(text="Tôi không thể xác định được mùa bạn muốn đi du lịch. Vui lòng chỉ định rõ mùa.")
+            return []
+        # Example query: tìm tour theo mùa
+        query = {"title": {"$regex": season, "$options": "i"}}
 
-        #tìm kiếm các tour hấp dẫn theo mùa trogn project2.tour_info
-        db = client.project2
-        collection = db.tour_info
-        #tìm trong tên tour nếu xuất hiện season thì trả về
-        tours = collection.find({"title": {"$regex": season}})
-        
-
-        # Sau khi tìm kiếm, phản hồi với thông tin tìm được
-        if(tours.count() == 0):
-            dispatcher.utter_message(text=f"Không tìm thấy tour nào phù hợp với mùa {season}")
-        else:
-            dispatcher.utter_message(text=f"Trong {season} này, có các tour hấp dẫn sau: \n{tours}")
+        try:
+            count = collection.count_documents(query)
+            dispatcher.utter_message(text=f"Found {count} tours for the summer season.")
+        except Exception as e:
+            dispatcher.utter_message(text=f"An error occurred: {str(e)}")
 
         return []
 
 
+#Xử lí action tìm tour theo ngân sách
+class ActionCustomerBudget(Action):
+    def name(self) -> str:
+        return "find_tour_by_budget"
 
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
+        budget = next(tracker.get_latest_entity_values("budget"), None)
+
+        if not budget:
+            dispatcher.utter_message(text="Tôi không thể xác định được ngân sách của bạn. Vui lòng chỉ định rõ ngân sách.")
+            return []
+        # Example query: tìm ngân sách trong tên tour
+        query = {"title": {"$regex": budget, "$options": "i"}}
+        #tìm ngân sách trong tên tour
+
+
+        try:
+            count = collection.count_documents(query)
+            dispatcher.utter_message(text=f"Found {count} tours for the budget.")
+        except Exception as e:
+            dispatcher.utter_message(text=f"An error occurred: {str(e)}")
+
+        return []
+
+#tìm 5 tour đầu tiên trong database
+class ActionTourSuggestGeneral(Action):
+    def name(self) -> str:
+        return "action_tour_suggest_general"
+
+    def run(self, dispatcher: CollectingDispatcher, tracker: Tracker, domain: dict):
+        # Example query: tìm 5 tour đầu tiên
+        query = {}
+
+        try:
+            tours = collection.find(query).limit(5)
+            for tour in tours:
+                dispatcher.utter_message(text=f"Tour: {tour['title']}")
+        except Exception as e:
+            dispatcher.utter_message(text=f"An error occurred: {str(e)}")
+
+        return []
+
+class ActionInformAdvise(Action):
+
+    def name(self) -> Text:
+        return "action_inform_advise"
+
+    def run(self, dispatcher: CollectingDispatcher,
+            tracker: Tracker,
+            domain: Dict[Text, Any]) -> List[Dict[Text, Any]]:
+
+        name = tracker.get_slot('name')
+        phone_number = tracker.get_slot('phone_number')
+        email = tracker.get_slot('email')
+
+        if name and phone_number and email:
+            response = f"Here is the advice based on your information:\nName: {name}\nPhone Number: {phone_number}\nEmail: {email}"
+        else:
+            response = "I need more information to provide the advice."
+
+        dispatcher.utter_message(text=response)
+
+        return []

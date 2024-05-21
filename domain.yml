@@ -1,11 +1,57 @@
 version: "3.1"
+
+templates:
+  utter_greet:
+  - text: "Xin chào, thật là một mùa tuyệt đẹp để đi du lịch nhỉ?"
+  - text: "Chào bạn, Hôm nay quả là một ngày tuyệt đẹp nhỉ"
+
+  utter_menu:
+  - text: "Bạn muốn tôi giúp gì nào?"
+  - text: "Tôi sẽ giúp bạn tìm kiếm tour du lịch, tư vấn địa điểm, mùa vụ, giá cả, thời gian, cũng như các thông tin khác về tour du lịch"
+    buttons:
+    - title: "Tư vấn tour"
+      payload: "/suggest_tour"
+    - title: "Câu hỏi về dịch vụ tour"
+      payload: "/ask_tour_general"
+    - title: "Tư vấn tour cụ thể"
+      payload: "/advise_form"
+    - title: "Đặt tour"
+      payload: "/booking_form"
+
+slots:
+  name:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: name
+  phone_number:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: phone_number
+  email:
+    type: text
+    mappings:
+      - type: from_entity
+        entity: email
+
 entities:
-  - season
-  - suggest
-  - this season
+- name
+- phone_number
+- email
+- season
+- suggest
+- this season
+- budget
+- price
+- below
+- above
 intents:
   - greet
   - goodbye
+  - name
+  - phone_number
+  - email
   - affirm
   - deny
   - mood_great
@@ -13,17 +59,48 @@ intents:
   - bot_challenge
   - ask_author
   - ask_function
-  - tour_suggest
+  - tour_suggest_season
+  - customer_budget
+  - tour_suggest_price
+  - ask_tour_general
+  - customer_no_destination
+
 actions:
-  - action_tour_suggest
-  - action_hello_world
+  - action_inform_advise
+  - action_tour_suggest_season
+  - action_tour_suggest_general
+  - find_tour_by_budget
+  - utter_greet
+  - utter_cheer_up
+  - utter_did_that_help
+  - utter_happy
+  - utter_goodbye
+  - utter_iamabot
+  - utter_ask_author
+  - utter_ask_function
+  - ask_customer_budget
 responses:
   utter_greet:
-  - text: "Hey! How are you?"
+  - text: "Xin chào {name}, thật là một mùa tuyệt đẹp để đi du lịch nhỉ?"
+  - text: "Chào bạn {name}, Hôm nay quả là một ngày tuyệt đẹp nhỉ"
+
+  utter_ask_name:
+  - text: "Bạn tên gì vậy?"
+  - text: "Mình tên gì cũng được, bạn tên gì vậy?"
+  - text: "Bạn có thể cho mình biết tên bạn không?"
+
+  utter_ask_phone_number:
+  - text: "Số điện thoại của bạn là gì?"
+  - text: "Vui lòng cho mình biết số điện thoại của bạn"
+
+  utter_ask_email:
+  - text: "Email của bạn là gì?"
+  - text: "Vui lòng cho mình biết email của bạn"
+  - text: "Bạn có thể cho mình biết email của bạn không?"
 
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
+  - text: "Đừng lo vì có nhiều người còn buồn hơn bạn:"
+    image: "https://mcdn.coolmate.me/image/August2023/meme-an-ui-12.jpg"
 
   utter_did_that_help:
   - text: Như thế có giúp bạn không?
@@ -49,14 +126,32 @@ responses:
   - text: "Mình là bot, nhưng mình có thể giúp bạn nhiều điều lắm"
 
   utter_ask_author:
-    - text: Chủ nhân của mình là một người hướng nội
-    - text: Má tui bảo nhặt tui từ thùng rác :|
-    - text: Tui nghĩ tui là con rơi á :(
-    - text: Tui được kể là nhặt từ trong bụi chuối trên Sapa hồi năm ngoái
-    - text: Tui là con của một coder đang học Rasa :D
+  - text: Má tui bảo nhặt tui từ thùng rác :|
+  - text: Tui nghĩ tui là con rơi á :(
+  - text: Tui được kể là nhặt từ trong bụi chuối trên Sapa hồi năm ngoái
+  - text: Tui là con của một coder đang học Rasa :D
+  - text: Chủ nhân của mình là một người hướng nội
 
   utter_ask_function:
     - text: Mình có thể giúp bạn tìm tour du lịch, tư vấn địa điểm, mùa vụ, giá cả, thời gian, cũng như các thông tin khác về tour du lịch
+
+  utter_ask_budget:
+  - text: Bạn dự định chi trả bao nhiêu tiền cho mỗi người trong chuyến đi?
+  - text: Mức chi phí bạn có thể chấp nhận cho mỗi người trong tour là bao nhiêu?
+  - text: Bạn ước tính mức giá lý tưởng cho mỗi người trong chuyến đi là bao nhiêu?
+  - text: Xin vui lòng cho biết ngân sách bạn đã dành cho mỗi người trong chuyến đi.
+  - text: Mức giá bạn mong muốn chi trả cho mỗi người trong tour là bao nhiêu?
+  - text: Bạn có dự định bỏ ra bao nhiêu tiền cho mỗi người trong tour này?
+  - text: Mức giá bạn muốn chi trả cho mỗi người trong tour là gì?
+  - text: Xin hỏi bạn dự định chi trả bao nhiêu cho mỗi người trong chuyến đi này?
+  - text: Bạn mong muốn mức giá nào cho mỗi người trong tour?
+  - text: Bạn dự kiến bỏ ra bao nhiêu tiền cho mỗi người trong chuyến đi?
+
+  ask_pre_plan:
+  - text: Bạn đã chọn được địa điểm du lịch chưa?
+  - text: Bạn đã chọn được điểm đến cho chuyến đi của mình chưa?
+  - text: Bạn đã có ý định gì trong đầu chưa?
+
 
 
     

@@ -9,18 +9,66 @@ nlu:
 
 - intent: greet
   examples: |
-    - chào
     - xin chào
     - chào bạn
     - chào buổi sáng
     - chào buổi tối
     - chào nha
+    - chào
     - chào bạn đó
     - chúng ta đi nào
     - chào bạn đẹp trai
     - chào buổi sáng
     - chào buổi tối
     - chào buổi chiều
+
+- intent: name
+  examples: |
+    - tôi là [Huy](name)
+    - Tên tôi là [Huy](name)
+    - Mình là [Huy](name)
+    - [Huy](name)
+    - [Phong](name)
+    - [Linh](name)
+    - [Duyên](name)
+    - [Huyền](name)
+    - Tớ là [Phong](name)
+    - Tớ là [Duyên](name)
+    - Mình là [Huyền](name)
+- intent: phone_number
+  examples: |
+    - Số điện thoại của tôi là [0123456789](phone_number)
+    - Số điện thoại của mình là [0123456789](phone_number)
+    - [0123456789](phone_number)
+    - [0123456789](phone_number)
+    - [0123456789](phone_number)
+
+- intent: email
+  examples: |
+    - Email của tôi là [phamphong300111@gmail.com](email)
+    - [nguyenDuyen2903@gmail.com](email)
+    - [phamphong300111@yahoo.com](email)
+    - [phong.pv215444@sis.hust.edu.vn](email)
+    - email của mình là [phong.pv215444@sis.hust.edu.vn](email)
+    - Hãy liên hệ với tôi qua địa chỉ email [johndoe@example.com](email)
+    - Email của bạn là [mary.smith@company.co.uk](email)
+    - [khanh.nguyen@abc.com.vn](email)
+    - [thanh.do@123mail.com](email)
+    - [john.smith@mail.com](email)
+    - [johndoe123@yahoo.co.jp](email)
+    - [anna.kowalska@example.pl](email)
+    - [li.hua@example.cn](email)
+    - [alexander.mueller@example.de](email)
+    - [maria.gonzalez@example.es](email)
+    - Đây là email của tôi: [danh.nguyen@example.vn](email)
+    - [mai.tran@example.vn](email)
+    - [tuan.nguyen@example.vn](email)
+    - [linh.nguyen@example.vn](email)
+    - [minh.nguyen@example.vn](email)
+    - [trung.nguyen@example.vn](email)
+    - [dung.le@example.vn](email)
+    - [thao.pham@example.vn](email)
+
 
 - intent: goodbye
   examples: |
@@ -93,7 +141,6 @@ nlu:
     - Một ngày tồi tệ
     - Tệ
     - Mọi chuyện không như tôi mong đợi
-    -
 
 
 - intent: bot_challenge
@@ -117,8 +164,61 @@ nlu:
     - chức năng của bạn là gì
 
 #Các câu hỏi về tour du lịch
+
+#Khách hàng chưa có dự định cụ thể
+- intent: no_destination
+  examples: |
+    - Tôi chưa có ý định cụ thể
+    - Tôi chưa biết đi đâu
+    - Tôi chưa quyết định đi đâu
+    - Chưa
+    - Chưa biết
+    - Chưa có
+    - Chưa nghĩ ra gì
+    - Chưa quyết định
+    - Chưa có ý định
+    - Chưa có kế hoạch
+    - Chưa có dự định
 #câu hỏi chung chung
-- intent: tour_suggest
+- intent: ask_tour_general
+  examples: |
+    - Hãy giới thiệu cho tôi một số tour du lịch thú vị hiện tại
+    - Có tour du lịch nào thú vị không?
+    - Có tour du lịch nào đang hot không?
+    - Có tour du lịch nào đang được nhiều người quan tâm không?
+    - Có tour du lịch nào đang được nhiều người chọn không?
+    - Hãy giới thiệu cho tôi một số tour du lịch thú vị hiện tại
+    - Có tour du lịch nào thú vị không?
+    - Có tour du lịch nào đang hot không?uuu
+    - Có tour du lịch nào đang được nhiều người quan tâm không?
+    - Có tour du lịch nào đang được nhiều người chọn không?
+    - Bạn có thể gợi ý cho tôi một vài tour du lịch không?
+    - Những tour du lịch nổi bật hiện nay là gì?
+    - Tour du lịch nào đang phổ biến hiện nay?
+    - Tôi muốn biết về các tour du lịch hấp dẫn hiện tại
+    - Các tour du lịch được yêu thích hiện tại là gì?
+    - Gần đây có tour du lịch nào đáng chú ý không?
+    - Tôi muốn tìm hiểu về các tour du lịch nổi bật
+    - Có tour du lịch nào mới và thú vị không?
+    - Tour du lịch nào được đánh giá cao hiện nay?
+    - Có tour du lịch nào mà nhiều người đang tham gia không?
+    - Bạn có đề xuất tour du lịch nào không?
+    - Có những tour du lịch nào đang được khuyến mãi không?
+    - Tôi muốn biết các tour du lịch đang hot hiện tại
+    - Tour du lịch nào đang là xu hướng hiện nay?
+    - Có tour du lịch nào phù hợp với gia đình không?
+    - Bạn có thể giới thiệu các tour du lịch mùa hè này không?
+    - Những tour du lịch nào được khách hàng yêu thích nhất?
+    - Có tour du lịch nào đang được quảng cáo nhiều không?
+    - Những tour du lịch phổ biến gần đây là gì?
+    - Tôi nên chọn tour du lịch nào cho kỳ nghỉ tới?
+    - Hãy làm tôi bất ngờ đi
+    - Có tour du lịch nào đặc biệt không?
+    - Có tour du lịch nào độc đáo không?
+    - Có tour du lịch nào đáng để tham gia không?
+
+  #Câu hỏi theo mùa
+- intent: tour_suggest_season
   examples: |
     - Trong những ngày [nóng bức](weather) của [mùa hè](season), có các tour nào tập trung vào tham quan những điểm nước mát?
     - Có những chuyến đi nào được thiết kế cho những ngày [trời mát mẻ](weather) của [mùa thu](season)?
@@ -172,6 +272,49 @@ nlu:
     - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
     - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch rừng?
     - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
+
+#Câu hỏi theo giá
+- intent: tour_suggest_price
+  examples: |
+    - Có những tour nào có giá [dưới](below) [2 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [1 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [3 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [4 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [5 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [6 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [7 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [8 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [9 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [10 triệu](price)?
+    - Có những tour nào có giá [dưới](below) [11 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [12 triệu](price)?
+    - Có những tour nào có giá [dưới](below) [13 triệu](price)?
+    - Có những tour nào có giá [dưới](below) [14 triệu](price)?
+    - Có những tour nào có giá [dưới](below) [15 triệu](price)?
+    - Có những tour nào có giá [dưới](below) [16 triệu](price)?
+    - Có những tour nào có giá [dưới](below) [17 triệu đồng](price)?
+    - Có những tour nào có giá [dưới](below) [18 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [2 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [1 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [3 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [4 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [5 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [6 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [7 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [8 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [9 triệu đồng](price)?
+    - Có những tour nào có giá [trên](above) [10 triệu](price)?
+
+
+- intent: customer_budget
+  examples: |
+    - Tôi dự định trả [300000](budget)
+    - Tôi dự định trả [500000](budget)
+    - Tôi dự định trả [1 triệu](budget)
+    - khoảng [2 triệu](budget)
+    - khoảng [3 triệu](budget)
+    - khoảng [3.5 triệu](budget)
+    - khoảng [4,5 triệu](budget)
 
 
 

@@ -5,7 +5,20 @@ stories:
 - story: greet and goodbye
   steps:
   - intent: greet
+  - action: utter_ask_name
+  - intent: name
+    entities:
+      - name: "Phong"
+  - action: utter_ask_phone_number
+  - intent: phone_number
+    entities:
+      - phone_number: "0123456789"
+  - action: utter_ask_email
+  - intent: email
+    entities:
+      - email: "phamphong300111@gmail.com"
   - action: utter_greet
+  - action: action_inform_advise
   - intent: goodbye
   - action: utter_goodbye
 
@@ -15,8 +28,6 @@ stories:
   - action: utter_greet
   - intent: ask_author
   - action: utter_ask_author
-
-
 
 - story: happy path
   steps:
@@ -38,6 +49,8 @@ stories:
 - story: sad path 2
   steps:
   - intent: greet
+  - action: utter_ask_name
+  - intent: name
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
@@ -53,13 +66,31 @@ stories:
 - story: tour suggest
   steps:
   - intent: greet
+  - action: utter_ask_name
+  - intent: name
   - action: utter_greet
-  - intent: tour_suggest
-  - action: action_tour_suggest
+  - intent: tour_suggest_season
+  - action: action_tour_suggest_season
+  - action: ask_customer_budget
+  - intent: customer_budget
+  - action: find_tour_by_budget
 
-- story: greet and say hello world
+- story: tour suggest 2 no_destination
+  steps:
+  - intent: greet
+  - intent: ask_pre_plan
+  - intent: no_destination
+  - action: action_tour_suggest_general
+  - action: ask_customer_budget
+  - intent: customer_budget
+  - action: find_tour_by_budget
+
+
+#Lựa chọn phương thức tư vấn
+- story: tour suggest 3
   steps:
   - intent: greet
   - action: utter_greet
-  - intent: bot_challenge
-  - action: action_hello_world
+  - action: utter_menu
+  - begin:
+
