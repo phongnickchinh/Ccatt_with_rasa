@@ -5,18 +5,6 @@ templates:
   - text: "Xin chào, thật là một mùa tuyệt đẹp để đi du lịch nhỉ?"
   - text: "Chào bạn, Hôm nay quả là một ngày tuyệt đẹp nhỉ"
 
-  utter_menu:
-  - text: "Bạn muốn tôi giúp gì nào?"
-  - text: "Tôi sẽ giúp bạn tìm kiếm tour du lịch, tư vấn địa điểm, mùa vụ, giá cả, thời gian, cũng như các thông tin khác về tour du lịch"
-    buttons:
-    - title: "Tư vấn tour"
-      payload: "/suggest_tour"
-    - title: "Câu hỏi về dịch vụ tour"
-      payload: "/ask_tour_general"
-    - title: "Tư vấn tour cụ thể"
-      payload: "/advise_form"
-    - title: "Đặt tour"
-      payload: "/booking_form"
 
 slots:
   name:
@@ -63,7 +51,11 @@ intents:
   - customer_budget
   - tour_suggest_price
   - ask_tour_general
+  - ask_pre_plan
+  - no_destination
+  - ask_tour_destination
   - customer_no_destination
+  - chatGPT
 
 actions:
   - action_inform_advise

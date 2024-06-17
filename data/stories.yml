@@ -91,6 +91,11 @@ stories:
   steps:
   - intent: greet
   - action: utter_greet
-  - action: utter_menu
-  - begin:
+  - intent: ask_tour_general
+  - action: ask_pre_plan
+  - intent: customer_no_destination
+  - action: tour_suggest_season
+  - action: ask_customer_budget
+  - intent: customer_budget
+  - action: utter_goodbye
 

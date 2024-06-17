@@ -25,16 +25,30 @@ nlu:
 - intent: name
   examples: |
     - tôi là [Huy](name)
-    - Tên tôi là [Huy](name)
-    - Mình là [Huy](name)
-    - [Huy](name)
-    - [Phong](name)
-    - [Linh](name)
+    - Tên tôi là [Phong](name)
+    - Mình là [Linh](name)
     - [Duyên](name)
     - [Huyền](name)
+    - Tớ là [Huy](name)
     - Tớ là [Phong](name)
-    - Tớ là [Duyên](name)
+    - Mình là [Duyên](name)
+    - Tôi tên là [Huyền](name)
+    - Tôi là [Phong](name)
+    - Mình tên là [Linh](name)
+    - [Huy](name) đây
+    - [Phong](name) đây
+    - Tên tớ là [Linh](name)
+    - Tôi là [Duyên](name)
     - Mình là [Huyền](name)
+    - Tớ là [Huy](name)
+    - Tớ là [Phong](name)
+    - Tôi là [Duyên](name)
+    - Tôi là [Huyền](name)
+    - Tao là [Huy](name)
+    - [Huy](name) là tên tao
+    - [Phong](name) là tên tao
+    - [Linh](name) là tên tao
+    
 - intent: phone_number
   examples: |
     - Số điện thoại của tôi là [0123456789](phone_number)
