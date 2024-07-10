@@ -8,14 +8,10 @@ assistant_id: 20240312-164304-rowdy-syntax
 
 # Configuration for Rasa NLU.
 # https://rasa.com/docs/rasa/nlu/components/
-language: vi
-
+language: "vi"
 pipeline:
-# No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
-# If you'd like to customize it, uncomment and adjust the pipeline.
-# See https://rasa.com/docs/rasa/tuning-your-model for more information.
-
-  - name: WhitespaceTokenizer
+  - name: "EmbeddingIntentClassifier" 
+  - name: WhitespaceTokenizer 
   - name: RegexFeaturizer
   - name: LexicalSyntacticFeaturizer
   - name: CountVectorsFeaturizer
@@ -24,10 +20,10 @@ pipeline:
     max_ngram: 4
   - name: CountVectorsFeaturizer
   - name: DIETClassifier
-    epochs: 100
+    epochs: 1000
   - name: EntitySynonymMapper
   - name: ResponseSelector
-    epochs: 100
+    epochs: 1000
   - name: FallbackClassifier
     threshold: 0.3
     ambiguity_threshold: 0.1
@@ -45,8 +41,8 @@ policies:
   # - name: FormPolicy
   # - name: MappingPolicy
     max_history: 5
-    epochs: 100
+    epochs: 1000
   - name: TEDPolicy
     max_history: 5
-    epochs: 100
+    epochs: 1000
     constrain_similarities: true
