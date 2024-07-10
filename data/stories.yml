@@ -2,36 +2,62 @@ version: "3.1"
 
 stories:
 
+#hỏi tên
 - story: greet and goodbye
   steps:
   - intent: greet
   - action: utter_ask_name
   - intent: name
     entities:
-      - name: "Phong"
-  - action: utter_ask_phone_number
-  - intent: phone_number
-    entities:
-      - phone_number: "0123456789"
-  - action: utter_ask_email
-  - intent: email
-    entities:
-      - email: "phamphong300111@gmail.com"
+      - name: "Duyen"
   - action: utter_greet
-  - action: action_inform_advise
   - intent: goodbye
   - action: utter_goodbye
+
+# sửa tên
+- story: reask name
+  steps:
+  - intent: wrong_name
+  - action: utter_ask_name
+  - intent: name
+    entities:
+      - name: "Duyên Nguyễn"
+  - action: utter_read_name
+
+# đọc tên
+- story: ask name
+  steps:
+  - intent: ask_my_name
+  - action: utter_read_name
+
+
+- story: ask author
+  steps:
+  - intent: ask_author
+  - action: utter_ask_author
 
 - story: greet and ask author
   steps:
   - intent: greet
+  - action: utter_ask_name
+  - intent: name
+    entities:
+    - name: "Duyen"
   - action: utter_greet
   - intent: ask_author
   - action: utter_ask_author
 
-- story: happy path
+- story: happy path 0
+  steps:
+  - intent: mood_great
+  - action: utter_happy
+- story: greet and happy path 1
   steps:
   - intent: greet
+  - action: utter_ask_name
+  - intent: name
+    entities:
+    - name: "Duyen"
   - action: utter_greet
   - intent: mood_great
   - action: utter_happy
@@ -39,7 +65,19 @@ stories:
 - story: sad path 1
   steps:
   - intent: greet
+  - action: utter_ask_name
+  - intent: name
+    entities:
+    - name: "Duyen"
   - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 1 noname
+  steps:
   - intent: mood_unhappy
   - action: utter_cheer_up
   - action: utter_did_that_help
@@ -51,6 +89,8 @@ stories:
   - intent: greet
   - action: utter_ask_name
   - intent: name
+    entities:
+    - name: "Duyen"
   - action: utter_greet
   - intent: mood_unhappy
   - action: utter_cheer_up
@@ -58,44 +98,53 @@ stories:
   - intent: deny
   - action: utter_goodbye
 
+- story: sad path 2 noname
+  steps:
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+
 - story: ask function
   steps:
   - intent: ask_function
   - action: utter_ask_function
 
-- story: tour suggest
-  steps:
-  - intent: greet
-  - action: utter_ask_name
-  - intent: name
-  - action: utter_greet
-  - intent: tour_suggest_season
-  - action: action_tour_suggest_season
-  - action: ask_customer_budget
-  - intent: customer_budget
-  - action: find_tour_by_budget
+# - story: tour suggest
+#   steps:
+#   - intent: greet
+#   - action: utter_ask_name
+#   - intent: name
+#   - action: utter_greet
+#   - intent: tour_suggest_season
+#   - action: action_tour_suggest_season
+#   - action: ask_customer_budget
+#   - intent: customer_budget
+#   - action: find_tour_by_budget
 
-- story: tour suggest 2 no_destination
-  steps:
-  - intent: greet
-  - intent: ask_pre_plan
-  - intent: no_destination
-  - action: action_tour_suggest_general
-  - action: ask_customer_budget
-  - intent: customer_budget
-  - action: find_tour_by_budget
+# - story: tour suggest 2 no_destination
+#   steps:
+#   - intent: greet
+#   - intent: ask_pre_plan
+#   - intent: no_destination
+#   - action: action_tour_suggest_general
+#   - action: ask_customer_budget
+#   - intent: customer_budget
+#   - action: find_tour_by_budget
 
 
-#Lựa chọn phương thức tư vấn
-- story: tour suggest 3
-  steps:
-  - intent: greet
-  - action: utter_greet
-  - intent: ask_tour_general
-  - action: ask_pre_plan
-  - intent: customer_no_destination
-  - action: tour_suggest_season
-  - action: ask_customer_budget
-  - intent: customer_budget
-  - action: utter_goodbye
+# #Lựa chọn phương thức tư vấn
+# - story: tour suggest 3
+#   steps:
+#   - intent: greet
+#   - action: utter_greet
+#   - intent: ask_tour_general
+#   - action: ask_pre_plan
+#   - intent: customer_no_destination
+#   - action: tour_suggest_season
+#   - action: ask_customer_budget
+#   - intent: customer_budget
+#   - action: utter_goodbye
 

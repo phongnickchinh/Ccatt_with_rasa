@@ -4,6 +4,7 @@ nlu:
 - intent: chatGPT
   examples: |
     - https://chat.openai.com/c/d4535419-cfa5-42b7-86b9-9cf2398b7c67
+    - https://chat.openai.com/c/d4535419-cfa5-42b7-86b9-9cf2398b7c64
     
 
 
@@ -21,6 +22,19 @@ nlu:
     - chào buổi sáng
     - chào buổi tối
     - chào buổi chiều
+
+- intent: ask_my_name
+  examples: |
+    - Tôi tên gì?
+    - Tên tôi là gì?
+    - Bạn có nhớ tên tôi không?
+    - Tên của tôi là gì?
+    - Tên tôi là gì?
+    - Tên mình là gì?
+    - Tên anh là gì?
+    - Tên em là gì?
+    - Em có nhớ tên anh không?
+    - Anh có nhớ tên em không?
 
 - intent: name
   examples: |
@@ -48,6 +62,132 @@ nlu:
     - [Huy](name) là tên tao
     - [Phong](name) là tên tao
     - [Linh](name) là tên tao
+    - [Phạm Phong] (name) là tên tao
+    - [Nguyễn Duyên] (name) là tên tao
+    - [Nguyễn Huy] (name) là tên tao
+    - [Nguyễn Linh] (name) là tên tao
+    - [Thanh Hương] (name)
+    - [Thanh Huyền] (name)
+    - [Thanh Duyên] (name)
+    - [Thanh Phong] (name)
+    - [Thanh Linh] (name)
+    - [John Doe] (name)
+    - [Mary Smith] (name)
+    - [John Smith] (name)
+    - [Huy](name)
+    - [Phong](name)
+    - [Linh](name)
+    - [Duyên](name)
+    - [Huyền](name)
+    - [Tuấn](name)
+    - [Minh](name)
+    - [Thảo](name)
+    - [An](name)
+    - [Nam](name)
+    - [Trang](name)
+    - [Hoàng](name)
+    - [Quang Huy](name)
+    - [Trần Anh](name)
+    - [Nguyễn Thị](name)
+    - [Lê Minh](name)
+    - [Phạm Thị](name)
+    - [Vũ Ngọc](name)
+    - [Nguyễn Văn](name)
+    - [Nguyễn Thị Thu](name)
+    - [Ngọc Mai](name)
+    - [Anh Tuấn](name)
+    - [Bảo Anh](name)
+    - [Lan Anh](name)
+    - [Đức Anh](name)
+    - [Hồng Anh](name)
+    - [Thùy Anh](name)
+    - [Đức](name)
+    - [Hà](name)
+    - [Hải](name)
+    - [Việt Hải](name)
+    - [Việt Hùng](name)
+    - [Linh Chi](name)
+    - [Hoài](name)
+    - [Hoài An](name)
+    - [Vân Anh](name)
+    - [Văn Anh](name)
+    - [Thiên An](name)
+    - [Đình Bảo](name)
+    - [Bá Đông](name)
+    - [Thị Đông](name)
+    - [Minh Đức](name)
+    - [Trung Đức](name)
+    - [Thu Dung](name)
+    - [Phương Dung](name)
+    - [Duyên Hà](name)
+    - [Thị Hà](name)
+    - [John Smith](name)
+    - [Emily Brown](name)
+    - [Michael Johnson](name)
+    - [Jessica Williams](name)
+    - [Daniel Davis](name)
+    - [Sarah Miller](name)
+    - [David Wilson](name)
+    - [Jennifer Moore](name)
+    - [Christopher Taylor](name)
+    - [Lisa Anderson](name)
+    - [Matthew Thomas](name)
+    - [Elizabeth White](name)
+    - [Joshua Martinez](name)
+    - [Amanda Garcia](name)
+    - [Kevin Robinson](name)
+    - [Mary Lewis](name)
+    - [Brian Walker](name)
+    - [Nicole Hill](name)
+    - [James Clark](name)
+    - [Megan Lewis](name)
+    - [William Hall](name)
+    - [Stephanie Young](name)
+    - [Joseph Hernandez](name)
+    - [Laura King](name)
+    - [Ryan Allen](name)
+    - [Samantha Scott](name)
+    - [Jason Green](name)
+    - [Kimberly Baker](name)
+    - [Ethan Carter](name)
+    - [Melissa Brooks](name)
+    - [Andrew Sanchez](name)
+    - [Michelle Reed](name)
+    - [Jonathan Rivera](name)
+    - [Ashley Cox](name)
+    - [Justin Perry](name)
+    - [Rachel Ward](name)
+    - [Brandon Morris](name)
+    - [Tiffany Bell](name)
+    - [Mark Powell](name)
+    - [Christina Long](name)
+    - [Patrick Hughes](name)
+    - [Angela Russell](name)
+    - [Tyler Price](name)
+    - [Rebecca Foster](name)
+    - [Kenneth Simmons](name)
+    - [Heather Bennett](name)
+
+
+- intent: wrong_name
+  examples: |
+    - bạn đã nhớ sai tên của tôi
+    - bạn đã nhớ nhầm tên của tôi
+    - bạn đã nhớ sai tên của mình
+    - bạn đã nhớ nhầm tên của mình
+    - Em đã nhớ sai tên của anh
+    - Em đã nhớ nhầm tên của anh
+    - Nhầm tên rồi
+    - Tên tôi không phải là [Huy](name)
+    - Tên tôi không phải là [Phong](name)
+    - Tên tôi không phải là [Linh](name)
+    - Tên tôi không phải là [Duyên](name)
+    - Tên tôi không phải là [Huyền](name)
+    - Tôi khong phải là [Huy](name)
+    - Tôi không phải là [Phong](name)
+    - Tôi không phải là [Linh](name)
+    - Tôi không phải là [Duyên](name)
+    - Tôi không phải là [Huyền](name)
     
 - intent: phone_number
   examples: |
@@ -193,142 +333,143 @@ nlu:
     - Chưa có ý định
     - Chưa có kế hoạch
     - Chưa có dự định
-#câu hỏi chung chung
-- intent: ask_tour_general
-  examples: |
-    - Hãy giới thiệu cho tôi một số tour du lịch thú vị hiện tại
-    - Có tour du lịch nào thú vị không?
-    - Có tour du lịch nào đang hot không?
-    - Có tour du lịch nào đang được nhiều người quan tâm không?
-    - Có tour du lịch nào đang được nhiều người chọn không?
-    - Hãy giới thiệu cho tôi một số tour du lịch thú vị hiện tại
-    - Có tour du lịch nào thú vị không?
-    - Có tour du lịch nào đang hot không?uuu
-    - Có tour du lịch nào đang được nhiều người quan tâm không?
-    - Có tour du lịch nào đang được nhiều người chọn không?
-    - Bạn có thể gợi ý cho tôi một vài tour du lịch không?
-    - Những tour du lịch nổi bật hiện nay là gì?
-    - Tour du lịch nào đang phổ biến hiện nay?
-    - Tôi muốn biết về các tour du lịch hấp dẫn hiện tại
-    - Các tour du lịch được yêu thích hiện tại là gì?
-    - Gần đây có tour du lịch nào đáng chú ý không?
-    - Tôi muốn tìm hiểu về các tour du lịch nổi bật
-    - Có tour du lịch nào mới và thú vị không?
-    - Tour du lịch nào được đánh giá cao hiện nay?
-    - Có tour du lịch nào mà nhiều người đang tham gia không?
-    - Bạn có đề xuất tour du lịch nào không?
-    - Có những tour du lịch nào đang được khuyến mãi không?
-    - Tôi muốn biết các tour du lịch đang hot hiện tại
-    - Tour du lịch nào đang là xu hướng hiện nay?
-    - Có tour du lịch nào phù hợp với gia đình không?
-    - Bạn có thể giới thiệu các tour du lịch mùa hè này không?
-    - Những tour du lịch nào được khách hàng yêu thích nhất?
-    - Có tour du lịch nào đang được quảng cáo nhiều không?
-    - Những tour du lịch phổ biến gần đây là gì?
-    - Tôi nên chọn tour du lịch nào cho kỳ nghỉ tới?
-    - Hãy làm tôi bất ngờ đi
-    - Có tour du lịch nào đặc biệt không?
-    - Có tour du lịch nào độc đáo không?
-    - Có tour du lịch nào đáng để tham gia không?
+    
+# #câu hỏi chung chung
+# - intent: ask_tour_general
+#   examples: |
+#     - Hãy giới thiệu cho tôi một số tour du lịch thú vị hiện tại
+#     - Có tour du lịch nào thú vị không?
+#     - Có tour du lịch nào đang hot không?
+#     - Có tour du lịch nào đang được nhiều người quan tâm không?
+#     - Có tour du lịch nào đang được nhiều người chọn không?
+#     - Hãy giới thiệu cho tôi một số tour du lịch thú vị hiện tại
+#     - Có tour du lịch nào thú vị không?
+#     - Có tour du lịch nào đang hot không?uuu
+#     - Có tour du lịch nào đang được nhiều người quan tâm không?
+#     - Có tour du lịch nào đang được nhiều người chọn không?
+#     - Bạn có thể gợi ý cho tôi một vài tour du lịch không?
+#     - Những tour du lịch nổi bật hiện nay là gì?
+#     - Tour du lịch nào đang phổ biến hiện nay?
+#     - Tôi muốn biết về các tour du lịch hấp dẫn hiện tại
+#     - Các tour du lịch được yêu thích hiện tại là gì?
+#     - Gần đây có tour du lịch nào đáng chú ý không?
+#     - Tôi muốn tìm hiểu về các tour du lịch nổi bật
+#     - Có tour du lịch nào mới và thú vị không?
+#     - Tour du lịch nào được đánh giá cao hiện nay?
+#     - Có tour du lịch nào mà nhiều người đang tham gia không?
+#     - Bạn có đề xuất tour du lịch nào không?
+#     - Có những tour du lịch nào đang được khuyến mãi không?
+#     - Tôi muốn biết các tour du lịch đang hot hiện tại
+#     - Tour du lịch nào đang là xu hướng hiện nay?
+#     - Có tour du lịch nào phù hợp với gia đình không?
+#     - Bạn có thể giới thiệu các tour du lịch mùa hè này không?
+#     - Những tour du lịch nào được khách hàng yêu thích nhất?
+#     - Có tour du lịch nào đang được quảng cáo nhiều không?
+#     - Những tour du lịch phổ biến gần đây là gì?
+#     - Tôi nên chọn tour du lịch nào cho kỳ nghỉ tới?
+#     - Hãy làm tôi bất ngờ đi
+#     - Có tour du lịch nào đặc biệt không?
+#     - Có tour du lịch nào độc đáo không?
+#     - Có tour du lịch nào đáng để tham gia không?
 
-  #Câu hỏi theo mùa
-- intent: tour_suggest_season
-  examples: |
-    - Trong những ngày [nóng bức](weather) của [mùa hè](season), có các tour nào tập trung vào tham quan những điểm nước mát?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời mát mẻ](weather) của [mùa thu](season)?
-    - Trong những ngày [trời nắng](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào các hoạt động ngoài trời?
-    - Có những tour nào được tổ chức vào những ngày [trời nắng chang chang](weather) của [mùa hè](season)?
-    - Trong những ngày [lạnh giá](weather) của [mùa đông](season), có các tour nào tập trung vào hoạt động trượt tuyết?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa đông](season)?
-    - Trong những ngày [trời mưa](weather) của [mùa xuân](season), có các tour nào tập trung vào thăm quan các vườn hoa?
-    - Có những tour nào được tổ chức vào những ngày [mưa rào](weather) của [mùa hè](season)?
-    - Trong những ngày [trời se se lạnh](weather) của [mùa thu](season), có các chuyến đi nào tập trung vào việc ngắm cảnh lá vàng?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời ấm áp](weather) của [mùa thu](season)?
-    - Trong những ngày [nắng nóng](weather) của [mùa hè](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nước?
-    - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa hè](season)?
-    - Trong những ngày [trời mát](weather) của [mùa xuân](season), có các chuyến đi nào tập trung vào việc khám phá thiên nhiên?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng vàng](weather) của [mùa thu](season)?
-    - Trong những ngày [trời mưa rào](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc tham gia các hoạt động trong nhà?
-    - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa thu](season)?
-    - Trong những ngày [trời mát mẻ](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các điểm du lịch lịch sử?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời mát](weather) của [mùa thu](season)?
-    - Trong những ngày [trời mưa](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu vui chơi giải trí trong nhà?
-    - Có những tour nào được tổ chức vào những ngày [trời se lạnh](weather) của [mùa đông](season)?
-    - Trong những ngày [trời mát](weather) của [mùa xuân](season), có các tour nào tập trung vào việc thăm quan các khu du lịch quốc gia?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng](weather) của [mùa hè](season)?
-    - Trong những ngày [trời mưa phùn](weather) của [mùa thu](season), có các chuyến đi nào tập trung vào việc tham quan các khu vườn hoa?
-    - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa đông](season)?
-    - Trong những ngày [trời mát mẻ](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nông nghiệp?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng chang chang](weather) của [mùa hè](season)?
-    - Trong những ngày [trời mưa rào](weather) của [mùa đông](season), có các chuyến đi nào tập trung vào việc tham quan các bảo tàng lịch sử?
-    - Có những tour nào được tổ chức vào những ngày [trời mát](weather) của [mùa xuân](season)?
-    - Trong những ngày [trời se se lạnh](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nghệ thuật?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời mưa phùn](weather) của [mùa hè](season)?
-    - Trong những ngày [trời se lạnh](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các di tích lịch sử?
-    - Có những tour nào được tổ chức vào những ngày [trời mát](weather) của [mùa xuân](season)?
-    - Trong những ngày [trời nắng](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các công viên quốc gia?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời mưa rào](weather) của [mùa đông](season)?
-    - Trong những ngày [trời mát mẻ](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch biển?
-    - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa xuân](season)?
-    - Trong những ngày [trời mưa phùn](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu di tích văn hóa?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời mát](weather) của [mùa đông](season)?
-    - Trong những ngày [trời nắng chang chang](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu vực nông thôn?
-    - Có những tour nào được tổ chức vào những ngày [trời mưa rào](weather) của [mùa xuân](season)?
-    - Trong những ngày [trời mát mẻ](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các công viên giải trí?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
-    - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch thiên nhiên?
-    - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
-    - Trong những ngày [trời mát](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu di tích lịch sử?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời se se lạnh](weather) của [mùa thu](season)?
-    - Trong những ngày [trời nắng chang chang](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu vực du lịch sinh thái?
-    - Có những tour nào được tổ chức vào những ngày [trời mưa rào](weather) của [mùa xuân](season)?
-    - Trong những ngày [trời mát mẻ](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu du lịch tôn giáo?
-    - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
-    - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch rừng?
-    - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
+#   #Câu hỏi theo mùa
+# - intent: tour_suggest_season
+#   examples: |
+#     - Trong những ngày [nóng bức](weather) của [mùa hè](season), có các tour nào tập trung vào tham quan những điểm nước mát?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời mát mẻ](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời nắng](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào các hoạt động ngoài trời?
+#     - Có những tour nào được tổ chức vào những ngày [trời nắng chang chang](weather) của [mùa hè](season)?
+#     - Trong những ngày [lạnh giá](weather) của [mùa đông](season), có các tour nào tập trung vào hoạt động trượt tuyết?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa đông](season)?
+#     - Trong những ngày [trời mưa](weather) của [mùa xuân](season), có các tour nào tập trung vào thăm quan các vườn hoa?
+#     - Có những tour nào được tổ chức vào những ngày [mưa rào](weather) của [mùa hè](season)?
+#     - Trong những ngày [trời se se lạnh](weather) của [mùa thu](season), có các chuyến đi nào tập trung vào việc ngắm cảnh lá vàng?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời ấm áp](weather) của [mùa thu](season)?
+#     - Trong những ngày [nắng nóng](weather) của [mùa hè](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nước?
+#     - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa hè](season)?
+#     - Trong những ngày [trời mát](weather) của [mùa xuân](season), có các chuyến đi nào tập trung vào việc khám phá thiên nhiên?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng vàng](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời mưa rào](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc tham gia các hoạt động trong nhà?
+#     - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời mát mẻ](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các điểm du lịch lịch sử?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời mát](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời mưa](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu vui chơi giải trí trong nhà?
+#     - Có những tour nào được tổ chức vào những ngày [trời se lạnh](weather) của [mùa đông](season)?
+#     - Trong những ngày [trời mát](weather) của [mùa xuân](season), có các tour nào tập trung vào việc thăm quan các khu du lịch quốc gia?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng](weather) của [mùa hè](season)?
+#     - Trong những ngày [trời mưa phùn](weather) của [mùa thu](season), có các chuyến đi nào tập trung vào việc tham quan các khu vườn hoa?
+#     - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa đông](season)?
+#     - Trong những ngày [trời mát mẻ](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nông nghiệp?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời nắng chang chang](weather) của [mùa hè](season)?
+#     - Trong những ngày [trời mưa rào](weather) của [mùa đông](season), có các chuyến đi nào tập trung vào việc tham quan các bảo tàng lịch sử?
+#     - Có những tour nào được tổ chức vào những ngày [trời mát](weather) của [mùa xuân](season)?
+#     - Trong những ngày [trời se se lạnh](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch nghệ thuật?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời mưa phùn](weather) của [mùa hè](season)?
+#     - Trong những ngày [trời se lạnh](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các di tích lịch sử?
+#     - Có những tour nào được tổ chức vào những ngày [trời mát](weather) của [mùa xuân](season)?
+#     - Trong những ngày [trời nắng](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các công viên quốc gia?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời mưa rào](weather) của [mùa đông](season)?
+#     - Trong những ngày [trời mát mẻ](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu du lịch biển?
+#     - Có những tour nào được tổ chức vào những ngày [trời se se lạnh](weather) của [mùa xuân](season)?
+#     - Trong những ngày [trời mưa phùn](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu di tích văn hóa?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời mát](weather) của [mùa đông](season)?
+#     - Trong những ngày [trời nắng chang chang](weather) của [mùa thu](season), có các tour nào tập trung vào việc thăm quan các khu vực nông thôn?
+#     - Có những tour nào được tổ chức vào những ngày [trời mưa rào](weather) của [mùa xuân](season)?
+#     - Trong những ngày [trời mát mẻ](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các công viên giải trí?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch thiên nhiên?
+#     - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
+#     - Trong những ngày [trời mát](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu di tích lịch sử?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời se se lạnh](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời nắng chang chang](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu vực du lịch sinh thái?
+#     - Có những tour nào được tổ chức vào những ngày [trời mưa rào](weather) của [mùa xuân](season)?
+#     - Trong những ngày [trời mát mẻ](weather) của [mùa hè](season), có các chuyến đi nào tập trung vào việc thăm quan các khu du lịch tôn giáo?
+#     - Có những chuyến đi nào được thiết kế cho những ngày [trời se lạnh](weather) của [mùa thu](season)?
+#     - Trong những ngày [trời nắng](weather) của [mùa đông](season), có các tour nào tập trung vào việc thăm quan các khu du lịch rừng?
+#     - Có những tour nào được tổ chức vào những ngày [trời mưa phùn](weather) của [mùa xuân](season)?
 
-#Câu hỏi theo giá
-- intent: tour_suggest_price
-  examples: |
-    - Có những tour nào có giá [dưới](below) [2 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [1 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [3 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [4 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [5 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [6 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [7 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [8 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [9 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [10 triệu](price)?
-    - Có những tour nào có giá [dưới](below) [11 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [12 triệu](price)?
-    - Có những tour nào có giá [dưới](below) [13 triệu](price)?
-    - Có những tour nào có giá [dưới](below) [14 triệu](price)?
-    - Có những tour nào có giá [dưới](below) [15 triệu](price)?
-    - Có những tour nào có giá [dưới](below) [16 triệu](price)?
-    - Có những tour nào có giá [dưới](below) [17 triệu đồng](price)?
-    - Có những tour nào có giá [dưới](below) [18 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [2 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [1 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [3 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [4 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [5 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [6 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [7 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [8 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [9 triệu đồng](price)?
-    - Có những tour nào có giá [trên](above) [10 triệu](price)?
+# #Câu hỏi theo giá
+# - intent: tour_suggest_price
+#   examples: |
+#     - Có những tour nào có giá [dưới](below) [2 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [1 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [3 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [4 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [5 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [6 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [7 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [8 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [9 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [10 triệu](price)?
+#     - Có những tour nào có giá [dưới](below) [11 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [12 triệu](price)?
+#     - Có những tour nào có giá [dưới](below) [13 triệu](price)?
+#     - Có những tour nào có giá [dưới](below) [14 triệu](price)?
+#     - Có những tour nào có giá [dưới](below) [15 triệu](price)?
+#     - Có những tour nào có giá [dưới](below) [16 triệu](price)?
+#     - Có những tour nào có giá [dưới](below) [17 triệu đồng](price)?
+#     - Có những tour nào có giá [dưới](below) [18 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [2 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [1 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [3 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [4 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [5 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [6 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [7 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [8 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [9 triệu đồng](price)?
+#     - Có những tour nào có giá [trên](above) [10 triệu](price)?
 
 
-- intent: customer_budget
-  examples: |
-    - Tôi dự định trả [300000](budget)
-    - Tôi dự định trả [500000](budget)
-    - Tôi dự định trả [1 triệu](budget)
-    - khoảng [2 triệu](budget)
-    - khoảng [3 triệu](budget)
-    - khoảng [3.5 triệu](budget)
-    - khoảng [4,5 triệu](budget)
+# - intent: customer_budget
+#   examples: |
+#     - Tôi dự định trả [300000](budget)
+#     - Tôi dự định trả [500000](budget)
+#     - Tôi dự định trả [1 triệu](budget)
+#     - khoảng [2 triệu](budget)
+#     - khoảng [3 triệu](budget)
+#     - khoảng [3.5 triệu](budget)
+#     - khoảng [4,5 triệu](budget)
 
 
 
